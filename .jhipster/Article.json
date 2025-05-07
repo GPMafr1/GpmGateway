@@ -1,0 +1,41 @@
+{
+  "name": "Article",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "designation",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "uniteDeMessure",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "quantiteContractuelle",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantiteRealisee",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20250507113713",
+  "entityTableName": "article",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["GpmGateway"],
+  "microserviceName": "affaireService"
+}

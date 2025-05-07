@@ -1,0 +1,27 @@
+{
+  "gpmGatewayApp": {
+    "ressourceServiceTauxConsommationVehicule": {
+      "home": {
+        "title": "Taux Consommation Vehicules",
+        "createLabel": "Create a new Taux Consommation Vehicule",
+        "createOrEditLabel": "Create or edit a Taux Consommation Vehicule",
+        "notFound": "No Taux Consommation Vehicules found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Taux Consommation Vehicule {{ id }}?"
+      },
+      "detail": {
+        "title": "Taux Consommation Vehicule"
+      },
+      "date": "Date",
+      "valeur": "Valeur"
+    }
+  },
+  "ressourceServiceApp": {
+    "ressourceServiceTauxConsommationVehicule": {
+      "created": "A new Taux Consommation Vehicule is created with identifier {{ param }}",
+      "updated": "A Taux Consommation Vehicule is updated with identifier {{ param }}",
+      "deleted": "A Taux Consommation Vehicule is deleted with identifier {{ param }}"
+    }
+  }
+}

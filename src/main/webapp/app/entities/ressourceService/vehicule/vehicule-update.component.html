@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-vehicule-heading" jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.home.createOrEditLabel">Create or edit a Vehicule</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.marque" for="field_marque">Marque</label>
+                    <input type="text" class="form-control" name="marque" id="field_marque"
+                           formControlName="marque"/>
+                    <div *ngIf="editForm.get('marque')!.invalid && (editForm.get('marque')!.dirty || editForm.get('marque')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('marque')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                    <div *ngIf="editForm.get('type')!.invalid && (editForm.get('type')!.dirty || editForm.get('type')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('type')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.matricule" for="field_matricule">Matricule</label>
+                    <input type="text" class="form-control" name="matricule" id="field_matricule"
+                           formControlName="matricule"/>
+                    <div *ngIf="editForm.get('matricule')!.invalid && (editForm.get('matricule')!.dirty || editForm.get('matricule')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('matricule')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.nbPlaces" for="field_nbPlaces">Nb Places</label>
+                    <input type="number" class="form-control" name="nbPlaces" id="field_nbPlaces"
+                           formControlName="nbPlaces"/>
+                    <div *ngIf="editForm.get('nbPlaces')!.invalid && (editForm.get('nbPlaces')!.dirty || editForm.get('nbPlaces')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbPlaces')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbPlaces')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.numeroCarteGrise" for="field_numeroCarteGrise">Numero Carte Grise</label>
+                    <input type="text" class="form-control" name="numeroCarteGrise" id="field_numeroCarteGrise"
+                           formControlName="numeroCarteGrise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.dateCirculation" for="field_dateCirculation">Date Circulation</label>
+                    <div class="input-group">
+                        <input id="field_dateCirculation" type="text" class="form-control" name="dateCirculation" ngbDatepicker #dateCirculationDp="ngbDatepicker" formControlName="dateCirculation"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCirculationDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateCirculation')!.invalid && (editForm.get('dateCirculation')!.dirty || editForm.get('dateCirculation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateCirculation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.typeCarburant" for="field_typeCarburant">Type Carburant</label>
+                    <select class="form-control" name="typeCarburant" formControlName="typeCarburant" id="field_typeCarburant">
+                        <option value="ESSENCE">{{ 'gpmGatewayApp.TypeCarburant.ESSENCE' | translate }}</option>
+                        <option value="GASOIL">{{ 'gpmGatewayApp.TypeCarburant.GASOIL' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('typeCarburant')!.invalid && (editForm.get('typeCarburant')!.dirty || editForm.get('typeCarburant')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('typeCarburant')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

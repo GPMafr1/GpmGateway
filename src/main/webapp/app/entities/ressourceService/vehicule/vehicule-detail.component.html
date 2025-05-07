@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vehicule">
+            <h2><span jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.detail.title">Vehicule</span> {{ vehicule.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.marque">Marque</span></dt>
+                <dd>
+                    <span>{{ vehicule.marque }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.type">Type</span></dt>
+                <dd>
+                    <span>{{ vehicule.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ vehicule.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.nbPlaces">Nb Places</span></dt>
+                <dd>
+                    <span>{{ vehicule.nbPlaces }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.numeroCarteGrise">Numero Carte Grise</span></dt>
+                <dd>
+                    <span>{{ vehicule.numeroCarteGrise }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.dateCirculation">Date Circulation</span></dt>
+                <dd>
+                    <span>{{ vehicule.dateCirculation }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.ressourceServiceVehicule.typeCarburant">Type Carburant</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gpmGatewayApp.TypeCarburant.' + vehicule.typeCarburant }}">{{ vehicule.typeCarburant }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vehicule', vehicule.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

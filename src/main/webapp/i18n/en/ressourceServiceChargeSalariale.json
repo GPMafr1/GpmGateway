@@ -1,0 +1,27 @@
+{
+  "gpmGatewayApp": {
+    "ressourceServiceChargeSalariale": {
+      "home": {
+        "title": "Charge Salariales",
+        "createLabel": "Create a new Charge Salariale",
+        "createOrEditLabel": "Create or edit a Charge Salariale",
+        "notFound": "No Charge Salariales found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Charge Salariale {{ id }}?"
+      },
+      "detail": {
+        "title": "Charge Salariale"
+      },
+      "date": "Date",
+      "valeur": "Valeur"
+    }
+  },
+  "ressourceServiceApp": {
+    "ressourceServiceChargeSalariale": {
+      "created": "A new Charge Salariale is created with identifier {{ param }}",
+      "updated": "A Charge Salariale is updated with identifier {{ param }}",
+      "deleted": "A Charge Salariale is deleted with identifier {{ param }}"
+    }
+  }
+}

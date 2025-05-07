@@ -1,0 +1,61 @@
+{
+  "name": "WorkOrder",
+  "fields": [
+    {
+      "fieldName": "demandeur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "motif",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateHeureDebutPrevisionnel",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateHeureFinPrevisionnel",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateHeureDebutReel",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dateHeureFinReel",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "materielUtilise",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remarque",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroFicheIntervention",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hebergement",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20250507113113",
+  "entityTableName": "work_order",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["GpmGateway"],
+  "microserviceName": "missionService"
+}

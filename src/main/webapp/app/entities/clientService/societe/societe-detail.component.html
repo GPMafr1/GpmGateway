@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="societe">
+            <h2><span jhiTranslate="gpmGatewayApp.clientServiceSociete.detail.title">Societe</span> {{ societe.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.raisonSociale">Raison Sociale</span></dt>
+                <dd>
+                    <span>{{ societe.raisonSociale }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.raisonSocialeAbrege">Raison Sociale Abrege</span></dt>
+                <dd>
+                    <span>{{ societe.raisonSocialeAbrege }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.identifiantUnique">Identifiant Unique</span></dt>
+                <dd>
+                    <span>{{ societe.identifiantUnique }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.registreCommerce">Registre Commerce</span></dt>
+                <dd>
+                    <span>{{ societe.registreCommerce }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.codeArticle">Code Article</span></dt>
+                <dd>
+                    <span>{{ societe.codeArticle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ societe.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.codePostal">Code Postal</span></dt>
+                <dd>
+                    <span>{{ societe.codePostal }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.pays">Pays</span></dt>
+                <dd>
+                    <span>{{ societe.pays }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ societe.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.fax">Fax</span></dt>
+                <dd>
+                    <span>{{ societe.fax }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSociete.email">Email</span></dt>
+                <dd>
+                    <span>{{ societe.email }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/societe', societe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

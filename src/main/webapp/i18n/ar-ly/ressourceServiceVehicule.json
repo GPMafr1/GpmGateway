@@ -1,0 +1,32 @@
+{
+  "gpmGatewayApp": {
+    "ressourceServiceVehicule": {
+      "home": {
+        "title": "Vehicules",
+        "createLabel": "Create a new Vehicule",
+        "createOrEditLabel": "Create or edit a Vehicule",
+        "notFound": "No Vehicules found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Vehicule {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehicule"
+      },
+      "marque": "Marque",
+      "type": "Type",
+      "matricule": "Matricule",
+      "nbPlaces": "Nb Places",
+      "numeroCarteGrise": "Numero Carte Grise",
+      "dateCirculation": "Date Circulation",
+      "typeCarburant": "Type Carburant"
+    }
+  },
+  "ressourceServiceApp": {
+    "ressourceServiceVehicule": {
+      "created": "A new Vehicule is created with identifier {{ param }}",
+      "updated": "A Vehicule is updated with identifier {{ param }}",
+      "deleted": "A Vehicule is deleted with identifier {{ param }}"
+    }
+  }
+}

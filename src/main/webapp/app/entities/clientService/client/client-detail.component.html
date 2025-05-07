@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="client">
+            <h2><span jhiTranslate="gpmGatewayApp.clientServiceClient.detail.title">Client</span> {{ client.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceClient.raisonSociale">Raison Sociale</span></dt>
+                <dd>
+                    <span>{{ client.raisonSociale }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceClient.identifiantUnique">Identifiant Unique</span></dt>
+                <dd>
+                    <span>{{ client.identifiantUnique }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceClient.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ client.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceClient.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ client.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceClient.fax">Fax</span></dt>
+                <dd>
+                    <span>{{ client.fax }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceClient.email">Email</span></dt>
+                <dd>
+                    <span>{{ client.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceClient.typeSites">Type Sites</span></dt>
+                <dd>
+                    <span>{{ client.typeSites }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/client', client.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

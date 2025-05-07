@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ordreTravailClient">
+            <h2><span jhiTranslate="gpmGatewayApp.missionServiceOrdreTravailClient.detail.title">Ordre Travail Client</span> {{ ordreTravailClient.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceOrdreTravailClient.demandeur">Demandeur</span></dt>
+                <dd>
+                    <span>{{ ordreTravailClient.demandeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceOrdreTravailClient.origine">Origine</span></dt>
+                <dd>
+                    <span>{{ ordreTravailClient.origine }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceOrdreTravailClient.motif">Motif</span></dt>
+                <dd>
+                    <span>{{ ordreTravailClient.motif }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ordre-travail-client', ordreTravailClient.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

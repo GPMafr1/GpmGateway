@@ -1,0 +1,11 @@
+{
+  "gpmGatewayApp": {
+    "ImportanceSST": {
+      "null": "",
+      "FAIBLE": "FAIBLE",
+      "MOYENNE": "MOYENNE",
+      "ELEVEE": "ELEVEE",
+      "CRITIQUE": "CRITIQUE"
+    }
+  }
+}

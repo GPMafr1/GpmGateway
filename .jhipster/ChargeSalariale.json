@@ -1,0 +1,28 @@
+{
+  "name": "ChargeSalariale",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "valeur",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20250507112413",
+  "entityTableName": "charge_salariale",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["GpmGateway"],
+  "microserviceName": "ressourceService"
+}

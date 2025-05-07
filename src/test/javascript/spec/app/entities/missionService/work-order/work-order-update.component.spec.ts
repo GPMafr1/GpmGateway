@@ -1,0 +1,61 @@
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { HttpResponse } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
+import { of } from 'rxjs';
+
+import { GpmGatewayTestModule } from '../../../../test.module';
+import { WorkOrderUpdateComponent } from 'app/entities/missionService/work-order/work-order-update.component';
+import { WorkOrderService } from 'app/entities/missionService/work-order/work-order.service';
+import { WorkOrder } from 'app/shared/model/missionService/work-order.model';
+
+describe('Component Tests', () => {
+  describe('WorkOrder Management Update Component', () => {
+    let comp: WorkOrderUpdateComponent;
+    let fixture: ComponentFixture<WorkOrderUpdateComponent>;
+    let service: WorkOrderService;
+
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        imports: [GpmGatewayTestModule],
+        declarations: [WorkOrderUpdateComponent],
+        providers: [FormBuilder],
+      })
+        .overrideTemplate(WorkOrderUpdateComponent, '')
+        .compileComponents();
+
+      fixture = TestBed.createComponent(WorkOrderUpdateComponent);
+      comp = fixture.componentInstance;
+      service = fixture.debugElement.injector.get(WorkOrderService);
+    });
+
+    describe('save', () => {
+      it('Should call update service on save for existing entity', fakeAsync(() => {
+        // GIVEN
+        const entity = new WorkOrder(123);
+        spyOn(service, 'update').and.returnValue(of(new HttpResponse({ body: entity })));
+        comp.updateForm(entity);
+        // WHEN
+        comp.save();
+        tick(); // simulate async
+
+        // THEN
+        expect(service.update).toHaveBeenCalledWith(entity);
+        expect(comp.isSaving).toEqual(false);
+      }));
+
+      it('Should call create service on save for new entity', fakeAsync(() => {
+        // GIVEN
+        const entity = new WorkOrder();
+        spyOn(service, 'create').and.returnValue(of(new HttpResponse({ body: entity })));
+        comp.updateForm(entity);
+        // WHEN
+        comp.save();
+        tick(); // simulate async
+
+        // THEN
+        expect(service.create).toHaveBeenCalledWith(entity);
+        expect(comp.isSaving).toEqual(false);
+      }));
+    });
+  });
+});

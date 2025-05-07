@@ -1,0 +1,32 @@
+{
+  "gpmGatewayApp": {
+    "clientServiceClient": {
+      "home": {
+        "title": "Clients",
+        "createLabel": "Create a new Client",
+        "createOrEditLabel": "Create or edit a Client",
+        "notFound": "No Clients found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Client {{ id }}?"
+      },
+      "detail": {
+        "title": "Client"
+      },
+      "raisonSociale": "Raison Sociale",
+      "identifiantUnique": "Identifiant Unique",
+      "adresse": "Adresse",
+      "telephone": "Telephone",
+      "fax": "Fax",
+      "email": "Email",
+      "typeSites": "Type Sites"
+    }
+  },
+  "clientServiceApp": {
+    "clientServiceClient": {
+      "created": "A new Client is created with identifier {{ param }}",
+      "updated": "A Client is updated with identifier {{ param }}",
+      "deleted": "A Client is deleted with identifier {{ param }}"
+    }
+  }
+}

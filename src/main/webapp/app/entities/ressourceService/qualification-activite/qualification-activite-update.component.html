@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-qualification-activite-heading" jhiTranslate="gpmGatewayApp.ressourceServiceQualificationActivite.home.createOrEditLabel">Create or edit a Qualification Activite</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceQualificationActivite.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                    <div *ngIf="editForm.get('code')!.invalid && (editForm.get('code')!.dirty || editForm.get('code')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('code')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceQualificationActivite.designation" for="field_designation">Designation</label>
+                    <input type="text" class="form-control" name="designation" id="field_designation"
+                           formControlName="designation"/>
+                    <div *ngIf="editForm.get('designation')!.invalid && (editForm.get('designation')!.dirty || editForm.get('designation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('designation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceQualificationActivite.niveau" for="field_niveau">Niveau</label>
+                    <select class="form-control" name="niveau" formControlName="niveau" id="field_niveau">
+                        <option value="TECHNICIEN_ORDINAIRE">{{ 'gpmGatewayApp.Qualification.TECHNICIEN_ORDINAIRE' | translate }}</option>
+                        <option value="TECHNICIEN_QUALIFIE">{{ 'gpmGatewayApp.Qualification.TECHNICIEN_QUALIFIE' | translate }}</option>
+                        <option value="CHEF_EQUIPE">{{ 'gpmGatewayApp.Qualification.CHEF_EQUIPE' | translate }}</option>
+                        <option value="INGENIEUR">{{ 'gpmGatewayApp.Qualification.INGENIEUR' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('niveau')!.invalid && (editForm.get('niveau')!.dirty || editForm.get('niveau')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('niveau')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

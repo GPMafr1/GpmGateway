@@ -1,0 +1,27 @@
+{
+  "gpmGatewayApp": {
+    "missionServiceArticleMission": {
+      "home": {
+        "title": "ArticleMissions",
+        "createLabel": "Créer un nouveau Article Mission",
+        "createOrEditLabel": "Créer ou éditer un Article Mission",
+        "notFound": "Aucun Article Mission trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Article Mission {{ id }} ?"
+      },
+      "detail": {
+        "title": "Article Mission"
+      },
+      "quantitePlanifiee": "Quantite Planifiee",
+      "quantiteUtilisee": "Quantite Utilisee"
+    }
+  },
+  "missionServiceApp": {
+    "missionServiceArticleMission": {
+      "created": "Un nouveau Article Mission a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Article Mission avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Article Mission avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

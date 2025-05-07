@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-frais-mission-heading" jhiTranslate="gpmGatewayApp.facturationServiceFraisMission.home.createOrEditLabel">Create or edit a Frais Mission</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.facturationServiceFraisMission.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="input-group">
+                        <input id="field_dateDebut" type="text" class="form-control" name="dateDebut" ngbDatepicker #dateDebutDp="ngbDatepicker" formControlName="dateDebut"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDebutDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateDebut')!.invalid && (editForm.get('dateDebut')!.dirty || editForm.get('dateDebut')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateDebut')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.facturationServiceFraisMission.dateFin" for="field_dateFin">Date Fin</label>
+                    <div class="input-group">
+                        <input id="field_dateFin" type="text" class="form-control" name="dateFin" ngbDatepicker #dateFinDp="ngbDatepicker" formControlName="dateFin"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateFinDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateFin')!.invalid && (editForm.get('dateFin')!.dirty || editForm.get('dateFin')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateFin')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.facturationServiceFraisMission.montantTotal" for="field_montantTotal">Montant Total</label>
+                    <input type="number" class="form-control" name="montantTotal" id="field_montantTotal"
+                           formControlName="montantTotal"/>
+                    <div *ngIf="editForm.get('montantTotal')!.invalid && (editForm.get('montantTotal')!.dirty || editForm.get('montantTotal')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantTotal')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('montantTotal')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.facturationServiceFraisMission.avanceRecue" for="field_avanceRecue">Avance Recue</label>
+                    <input type="number" class="form-control" name="avanceRecue" id="field_avanceRecue"
+                           formControlName="avanceRecue"/>
+                    <div *ngIf="editForm.get('avanceRecue')!.invalid && (editForm.get('avanceRecue')!.dirty || editForm.get('avanceRecue')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('avanceRecue')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('avanceRecue')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.facturationServiceFraisMission.netAPayer" for="field_netAPayer">Net A Payer</label>
+                    <input type="number" class="form-control" name="netAPayer" id="field_netAPayer"
+                           formControlName="netAPayer"/>
+                    <div *ngIf="editForm.get('netAPayer')!.invalid && (editForm.get('netAPayer')!.dirty || editForm.get('netAPayer')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('netAPayer')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('netAPayer')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

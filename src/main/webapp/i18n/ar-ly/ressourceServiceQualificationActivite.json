@@ -1,0 +1,28 @@
+{
+  "gpmGatewayApp": {
+    "ressourceServiceQualificationActivite": {
+      "home": {
+        "title": "Qualification Activites",
+        "createLabel": "Create a new Qualification Activite",
+        "createOrEditLabel": "Create or edit a Qualification Activite",
+        "notFound": "No Qualification Activites found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Qualification Activite {{ id }}?"
+      },
+      "detail": {
+        "title": "Qualification Activite"
+      },
+      "code": "Code",
+      "designation": "Designation",
+      "niveau": "Niveau"
+    }
+  },
+  "ressourceServiceApp": {
+    "ressourceServiceQualificationActivite": {
+      "created": "A new Qualification Activite is created with identifier {{ param }}",
+      "updated": "A Qualification Activite is updated with identifier {{ param }}",
+      "deleted": "A Qualification Activite is deleted with identifier {{ param }}"
+    }
+  }
+}

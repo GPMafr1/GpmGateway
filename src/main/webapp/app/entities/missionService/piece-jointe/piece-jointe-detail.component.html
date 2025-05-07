@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pieceJointe">
+            <h2><span jhiTranslate="gpmGatewayApp.missionServicePieceJointe.detail.title">Piece Jointe</span> {{ pieceJointe.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.missionServicePieceJointe.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ pieceJointe.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServicePieceJointe.type">Type</span></dt>
+                <dd>
+                    <span>{{ pieceJointe.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServicePieceJointe.contenu">Contenu</span></dt>
+                <dd>
+                    <div *ngIf="pieceJointe.contenu">
+                        <a (click)="openFile(pieceJointe.contenuContentType, pieceJointe.contenu)" jhiTranslate="entity.action.open">open</a>
+                        {{ pieceJointe.contenuContentType }}, {{ byteSize(pieceJointe.contenu) }}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/piece-jointe', pieceJointe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

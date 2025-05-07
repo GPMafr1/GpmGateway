@@ -1,0 +1,9 @@
+{
+  "gpmGatewayApp": {
+    "TypeCarburant": {
+      "null": "",
+      "ESSENCE": "ESSENCE",
+      "GASOIL": "GASOIL"
+    }
+  }
+}

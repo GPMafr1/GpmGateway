@@ -1,0 +1,11 @@
+{
+  "gpmGatewayApp": {
+    "Qualification": {
+      "null": "",
+      "TECHNICIEN_ORDINAIRE": "TECHNICIEN_ORDINAIRE",
+      "TECHNICIEN_QUALIFIE": "TECHNICIEN_QUALIFIE",
+      "CHEF_EQUIPE": "CHEF_EQUIPE",
+      "INGENIEUR": "INGENIEUR"
+    }
+  }
+}

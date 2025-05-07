@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gpmGatewayApp.clientServiceContact.home.title">Contacts</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-contact" [routerLink]="['/contact/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gpmGatewayApp.clientServiceContact.home.createLabel">
+            Create a new Contact
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="contacts?.length === 0">
+        <span jhiTranslate="gpmGatewayApp.clientServiceContact.home.notFound">No contacts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="contacts && contacts.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="raisonSociale"><span jhiTranslate="gpmGatewayApp.clientServiceContact.raisonSociale">Raison Sociale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="identifiantUnique"><span jhiTranslate="gpmGatewayApp.clientServiceContact.identifiantUnique">Identifiant Unique</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="gpmGatewayApp.clientServiceContact.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telephone"><span jhiTranslate="gpmGatewayApp.clientServiceContact.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fax"><span jhiTranslate="gpmGatewayApp.clientServiceContact.fax">Fax</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="gpmGatewayApp.clientServiceContact.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contact of contacts ;trackBy: trackId">
+                    <td><a [routerLink]="['/contact', contact.id, 'view']">{{ contact.id }}</a></td>
+                    <td>{{ contact.raisonSociale }}</td>
+                    <td>{{ contact.identifiantUnique }}</td>
+                    <td>{{ contact.adresse }}</td>
+                    <td>{{ contact.telephone }}</td>
+                    <td>{{ contact.fax }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/contact', contact.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/contact', contact.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(contact)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="contacts && contacts.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

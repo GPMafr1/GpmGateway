@@ -1,0 +1,29 @@
+{
+  "gpmGatewayApp": {
+    "missionServiceSSt": {
+      "home": {
+        "title": "SSTS",
+        "createLabel": "Créer un nouveau SST",
+        "createOrEditLabel": "Créer ou éditer un SST",
+        "notFound": "Aucun SST trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le SST {{ id }} ?"
+      },
+      "detail": {
+        "title": "SST"
+      },
+      "label": "Label",
+      "date": "Date",
+      "importance": "Importance",
+      "commentaire": "Commentaire"
+    }
+  },
+  "missionServiceApp": {
+    "missionServiceSSt": {
+      "created": "Un nouveau SST a été créé avec l'identifiant {{ param }}",
+      "updated": "Le SST avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le SST avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

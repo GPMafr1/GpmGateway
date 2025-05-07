@@ -1,0 +1,30 @@
+{
+  "gpmGatewayApp": {
+    "facturationServiceFraisMission": {
+      "home": {
+        "title": "FraisMissions",
+        "createLabel": "Créer un nouveau Frais Mission",
+        "createOrEditLabel": "Créer ou éditer un Frais Mission",
+        "notFound": "Aucun Frais Mission trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Frais Mission {{ id }} ?"
+      },
+      "detail": {
+        "title": "Frais Mission"
+      },
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "montantTotal": "Montant Total",
+      "avanceRecue": "Avance Recue",
+      "netAPayer": "Net A Payer"
+    }
+  },
+  "facturationServiceApp": {
+    "facturationServiceFraisMission": {
+      "created": "Un nouveau Frais Mission a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Frais Mission avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Frais Mission avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

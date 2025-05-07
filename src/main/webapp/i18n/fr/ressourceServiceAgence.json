@@ -1,0 +1,29 @@
+{
+  "gpmGatewayApp": {
+    "ressourceServiceAgence": {
+      "home": {
+        "title": "Agences",
+        "createLabel": "Créer un nouveau Agence",
+        "createOrEditLabel": "Créer ou éditer un Agence",
+        "notFound": "Aucun Agence trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Agence {{ id }} ?"
+      },
+      "detail": {
+        "title": "Agence"
+      },
+      "designation": "Designation",
+      "adresse": "Adresse",
+      "ville": "Ville",
+      "pays": "Pays"
+    }
+  },
+  "ressourceServiceApp": {
+    "ressourceServiceAgence": {
+      "created": "Un nouveau Agence a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Agence avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Agence avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="affaire">
+            <h2><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.detail.title">Affaire</span> {{ affaire.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.numeroAffaire">Numero Affaire</span></dt>
+                <dd>
+                    <span>{{ affaire.numeroAffaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.designationAffaire">Designation Affaire</span></dt>
+                <dd>
+                    <span>{{ affaire.designationAffaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.bonDeCommande">Bon De Commande</span></dt>
+                <dd>
+                    <span>{{ affaire.bonDeCommande }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ affaire.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.devise">Devise</span></dt>
+                <dd>
+                    <span>{{ affaire.devise }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{ affaire.dateDebut }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.dateCloture">Date Cloture</span></dt>
+                <dd>
+                    <span>{{ affaire.dateCloture }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.datePassageExecution">Date Passage Execution</span></dt>
+                <dd>
+                    <span>{{ affaire.datePassageExecution }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.lieuMultipleParMission">Lieu Multiple Par Mission</span></dt>
+                <dd>
+                    <span>{{ affaire.lieuMultipleParMission }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.montantVente">Montant Vente</span></dt>
+                <dd>
+                    <span>{{ affaire.montantVente }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.montantBudgetaireMateriel">Montant Budgetaire Materiel</span></dt>
+                <dd>
+                    <span>{{ affaire.montantBudgetaireMateriel }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.montantBudgetaireService">Montant Budgetaire Service</span></dt>
+                <dd>
+                    <span>{{ affaire.montantBudgetaireService }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceAffaire.statut">Statut</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gpmGatewayApp.StatutAffaire.' + affaire.statut }}">{{ affaire.statut }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/affaire', affaire.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

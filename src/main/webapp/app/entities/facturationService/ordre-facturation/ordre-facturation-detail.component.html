@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ordreFacturation">
+            <h2><span jhiTranslate="gpmGatewayApp.facturationServiceOrdreFacturation.detail.title">Ordre Facturation</span> {{ ordreFacturation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.facturationServiceOrdreFacturation.devis">Devis</span></dt>
+                <dd>
+                    <span>{{ ordreFacturation.devis }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.facturationServiceOrdreFacturation.bonDeCommande">Bon De Commande</span></dt>
+                <dd>
+                    <span>{{ ordreFacturation.bonDeCommande }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.facturationServiceOrdreFacturation.numeroFacture">Numero Facture</span></dt>
+                <dd>
+                    <span>{{ ordreFacturation.numeroFacture }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.facturationServiceOrdreFacturation.montantFacture">Montant Facture</span></dt>
+                <dd>
+                    <span>{{ ordreFacturation.montantFacture }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.facturationServiceOrdreFacturation.dateFacture">Date Facture</span></dt>
+                <dd>
+                    <span>{{ ordreFacturation.dateFacture }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.facturationServiceOrdreFacturation.dateEcheance">Date Echeance</span></dt>
+                <dd>
+                    <span>{{ ordreFacturation.dateEcheance }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.facturationServiceOrdreFacturation.dateDecharge">Date Decharge</span></dt>
+                <dd>
+                    <span>{{ ordreFacturation.dateDecharge }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ordre-facturation', ordreFacturation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "gpmGatewayApp": {
+    "missionServiceSiteMission": {
+      "home": {
+        "title": "SiteMissions",
+        "createLabel": "Créer un nouveau Site Mission",
+        "createOrEditLabel": "Créer ou éditer un Site Mission",
+        "notFound": "Aucun Site Mission trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Site Mission {{ id }} ?"
+      },
+      "detail": {
+        "title": "Site Mission"
+      },
+      "code": "Code",
+      "commentaire": "Commentaire",
+      "dateHeureDebutReel": "Date Heure Debut Reel",
+      "dateHeureFinReel": "Date Heure Fin Reel"
+    }
+  },
+  "missionServiceApp": {
+    "missionServiceSiteMission": {
+      "created": "Un nouveau Site Mission a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Site Mission avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Site Mission avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

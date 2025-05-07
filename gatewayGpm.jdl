@@ -1,0 +1,292 @@
+application {    
+  config {
+    baseName GpmGateway
+    applicationType gateway
+    packageName com.africom.ccgateway
+    authenticationType jwt
+    prodDatabaseType postgresql
+    clientFramework angular
+    buildTool maven
+    cacheProvider hazelcast
+    clientPackageManager npm
+    clientTheme flatly
+    clientThemeVariant primary
+    databaseType sql
+    devDatabaseType postgresql
+    dtoSuffix DTO
+    embeddableLaunchScript false
+    enableHibernateCache false
+    enableSwaggerCodegen false
+    enableTranslation true
+    jhiPrefix jhi
+    jhipsterVersion "6.10.5"
+    languages [fr, ar-ly, en]
+    nativeLanguage fr
+    serverPort 8080
+    serviceDiscoveryType eureka
+    skipClient false
+    skipServer false
+    skipUserManagement false
+    testFrameworks []
+    websocket false
+  }
+  entities *
+}
+
+entity Vehicule {
+marque String required
+type String required
+matricule String required
+nbPlaces Integer required
+numeroCarteGrise String
+dateCirculation LocalDate required
+typeCarburant TypeCarburant required
+}
+
+entity ChargeFixeVehicule {
+date LocalDate required
+valeur BigDecimal required
+}
+
+entity TauxConsommationVehicule {
+date LocalDate required
+valeur BigDecimal required
+}
+
+entity Agence {
+id String required
+designation String required
+adresse String required
+ville String required
+pays String required
+}
+
+entity Employe {
+matricule String required
+prenomNom String required
+attribut TypeAttributEmploye required
+chefProjet Boolean required
+numeroPermis String
+numeroCIN String
+}
+
+entity ChargeSalariale {
+date LocalDate required
+valeur BigDecimal required
+}
+
+entity QualificationActivite {
+code String required
+designation String required
+niveau Qualification required
+}
+
+
+entity FraisMission {
+id String required
+dateDebut LocalDate required
+dateFin LocalDate required
+montantTotal BigDecimal required
+avanceRecue BigDecimal required
+netAPayer BigDecimal required
+
+}
+
+entity OrdreFacturation {
+id String required
+devis String required
+bonDeCommande String required
+numeroFacture String required
+montantFacture BigDecimal required
+dateFacture LocalDate required
+dateEcheance LocalDate required
+dateDecharge LocalDate required
+}
+
+
+entity ArticleMission {
+  id String required
+  quantitePlanifiee Integer required
+  quantiteUtilisee Integer required
+}
+
+entity Activite {
+  code String required
+  designation String required
+  type TypeActivite required
+}
+
+entity OrdreTravailClient {
+  id String required
+  demandeur String
+  origine String
+  motif String required
+}
+
+entity WorkOrder {
+  id String required
+  demandeur String
+  motif String required
+  dateHeureDebutPrevisionnel ZonedDateTime required
+  dateHeureFinPrevisionnel ZonedDateTime required
+  dateHeureDebutReel ZonedDateTime
+  dateHeureFinReel ZonedDateTime
+  materielUtilise String
+  remarque String
+  numeroFicheIntervention String
+  hebergement BigDecimal
+}
+
+entity SiteMission {
+  code String required
+  commentaire String
+  dateHeureDebutReel ZonedDateTime required
+  dateHeureFinReel ZonedDateTime required
+}
+
+entity PieceJointe {
+  nom String required
+  type String required
+  contenu Blob required
+}
+
+entity Tache {
+  id String required
+  roleMission String required
+  note String required
+  remboursement BigDecimal required
+}
+
+entity SST {
+  label String
+  date LocalDate
+  importance ImportanceSST
+  commentaire String
+}
+
+
+entity Affaire {
+  numeroAffaire String required pattern(/AfAA[0-9]{4}/)
+  designationAffaire String required
+  bonDeCommande String
+  montant BigDecimal
+  devise String
+  dateDebut LocalDate required
+  dateCloture LocalDate
+  datePassageExecution LocalDate
+  lieuMultipleParMission Boolean
+  montantVente BigDecimal
+  montantBudgetaireMateriel BigDecimal
+  montantBudgetaireService BigDecimal
+  statut StatutAffaire required
+}
+
+entity Article {
+  code String required
+  designation String required
+  uniteDeMessure String required
+  quantiteContractuelle Integer
+  quantiteRealisee Integer
+}
+
+
+entity Client {
+  id String required
+  raisonSociale String required
+  identifiantUnique String required
+  adresse String
+  telephone String
+  fax String
+  email String pattern(/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/)
+  typeSites String
+}
+
+entity Societe {
+  id String required
+  raisonSociale String required
+  raisonSocialeAbrege String required
+  identifiantUnique String required
+  registreCommerce String required
+  codeArticle String required
+  adresse String required
+  codePostal String required
+  pays String required
+  telephone String
+  fax String
+  email String pattern(/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/)
+}
+
+entity Contact {
+  id String required
+  raisonSociale String required
+  identifiantUnique String required
+  adresse String
+  telephone String
+  fax String
+  email String pattern(/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/)
+}
+
+entity Site {
+  code String required
+  designation String
+  ville String required
+  gpsX Double
+  gpsY Double
+}
+
+enum StatutAffaire {
+  DRAFT,
+  PREPARATION_OFFRE_TECHNIQUE,
+  PREPARATION_OFFRE_ADMINISTRATIVE,
+  OFFRE_FOURNISSEUR,
+  SOUMISSION,
+  EXECUTION,
+  CLOTUREE
+}
+
+enum TypeActivite {
+  MAINTENANCE,
+  FO_IT,
+  RADIO,
+  ENERGIE
+}
+
+enum ImportanceSST {
+  FAIBLE,
+  MOYENNE,
+  ELEVEE,
+  CRITIQUE
+}
+
+enum TypeCarburant {
+  ESSENCE,
+  GASOIL
+}
+
+enum TypeAttributEmploye {
+  SOUS_TRAITANT,
+  EMPLOYE
+}
+
+enum Qualification {
+  TECHNICIEN_ORDINAIRE,
+  TECHNICIEN_QUALIFIE,
+  CHEF_EQUIPE,
+  INGENIEUR
+}
+
+dto * with mapstruct
+
+paginate * with pagination
+
+service * with serviceClass
+
+microservice Client, Societe, Contact, Site with clientService
+
+microservice Affaire, Article with affaireService
+
+microservice ArticleMission, Activite, OrdreTravailClient, WorkOrder, SiteMission, PieceJointe, Tache, SST with missionService
+
+microservice FraisMission, OrdreFacturation with facturationService
+
+microservice Vehicule, ChargeFixeVehicule, TauxConsommationVehicule, Agence, Employe, ChargeSalariale, QualificationActivite with ressourceService

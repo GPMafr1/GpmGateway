@@ -1,0 +1,36 @@
+{
+  "gpmGatewayApp": {
+    "clientServiceSociete": {
+      "home": {
+        "title": "Societes",
+        "createLabel": "Create a new Societe",
+        "createOrEditLabel": "Create or edit a Societe",
+        "notFound": "No Societes found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Societe {{ id }}?"
+      },
+      "detail": {
+        "title": "Societe"
+      },
+      "raisonSociale": "Raison Sociale",
+      "raisonSocialeAbrege": "Raison Sociale Abrege",
+      "identifiantUnique": "Identifiant Unique",
+      "registreCommerce": "Registre Commerce",
+      "codeArticle": "Code Article",
+      "adresse": "Adresse",
+      "codePostal": "Code Postal",
+      "pays": "Pays",
+      "telephone": "Telephone",
+      "fax": "Fax",
+      "email": "Email"
+    }
+  },
+  "clientServiceApp": {
+    "clientServiceSociete": {
+      "created": "A new Societe is created with identifier {{ param }}",
+      "updated": "A Societe is updated with identifier {{ param }}",
+      "deleted": "A Societe is deleted with identifier {{ param }}"
+    }
+  }
+}

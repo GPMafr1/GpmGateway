@@ -1,0 +1,76 @@
+{
+  "name": "Affaire",
+  "fields": [
+    {
+      "fieldName": "numeroAffaire",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "pattern"],
+      "fieldValidateRulesPattern": "AfAA[0-9]{4}"
+    },
+    {
+      "fieldName": "designationAffaire",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "bonDeCommande",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "montant",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "devise",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateDebut",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateCloture",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "datePassageExecution",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lieuMultipleParMission",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "montantVente",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "montantBudgetaireMateriel",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "montantBudgetaireService",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "StatutAffaire",
+      "fieldValues": "DRAFT,PREPARATION_OFFRE_TECHNIQUE,PREPARATION_OFFRE_ADMINISTRATIVE,OFFRE_FOURNISSEUR,SOUMISSION,EXECUTION,CLOTUREE",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20250507113613",
+  "entityTableName": "affaire",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["GpmGateway"],
+  "microserviceName": "affaireService"
+}

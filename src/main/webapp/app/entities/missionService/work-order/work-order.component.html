@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.home.title">Work Orders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-work-order" [routerLink]="['/work-order/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.home.createLabel">
+            Create a new Work Order
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="workOrders?.length === 0">
+        <span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.home.notFound">No workOrders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="workOrders && workOrders.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="demandeur"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.demandeur">Demandeur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="motif"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.motif">Motif</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateHeureDebutPrevisionnel"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureDebutPrevisionnel">Date Heure Debut Previsionnel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateHeureFinPrevisionnel"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureFinPrevisionnel">Date Heure Fin Previsionnel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateHeureDebutReel"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureDebutReel">Date Heure Debut Reel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateHeureFinReel"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureFinReel">Date Heure Fin Reel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="materielUtilise"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.materielUtilise">Materiel Utilise</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarque"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.remarque">Remarque</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroFicheIntervention"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.numeroFicheIntervention">Numero Fiche Intervention</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="hebergement"><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.hebergement">Hebergement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let workOrder of workOrders ;trackBy: trackId">
+                    <td><a [routerLink]="['/work-order', workOrder.id, 'view']">{{ workOrder.id }}</a></td>
+                    <td>{{ workOrder.demandeur }}</td>
+                    <td>{{ workOrder.motif }}</td>
+                    <td>{{ workOrder.dateHeureDebutPrevisionnel | date:'medium' }}</td>
+                    <td>{{ workOrder.dateHeureFinPrevisionnel | date:'medium' }}</td>
+                    <td>{{ workOrder.dateHeureDebutReel | date:'medium' }}</td>
+                    <td>{{ workOrder.dateHeureFinReel | date:'medium' }}</td>
+                    <td>{{ workOrder.materielUtilise }}</td>
+                    <td>{{ workOrder.remarque }}</td>
+                    <td>{{ workOrder.numeroFicheIntervention }}</td>
+                    <td>{{ workOrder.hebergement }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/work-order', workOrder.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/work-order', workOrder.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(workOrder)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="workOrders && workOrders.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

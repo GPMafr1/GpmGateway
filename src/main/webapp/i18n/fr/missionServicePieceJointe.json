@@ -1,0 +1,28 @@
+{
+  "gpmGatewayApp": {
+    "missionServicePieceJointe": {
+      "home": {
+        "title": "PieceJointes",
+        "createLabel": "Créer un nouveau Piece Jointe",
+        "createOrEditLabel": "Créer ou éditer un Piece Jointe",
+        "notFound": "Aucun Piece Jointe trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Piece Jointe {{ id }} ?"
+      },
+      "detail": {
+        "title": "Piece Jointe"
+      },
+      "nom": "Nom",
+      "type": "Type",
+      "contenu": "Contenu"
+    }
+  },
+  "missionServiceApp": {
+    "missionServicePieceJointe": {
+      "created": "Un nouveau Piece Jointe a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Piece Jointe avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Piece Jointe avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

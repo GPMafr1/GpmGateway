@@ -1,0 +1,30 @@
+{
+  "gpmGatewayApp": {
+    "affaireServiceArticle": {
+      "home": {
+        "title": "Articles",
+        "createLabel": "Create a new Article",
+        "createOrEditLabel": "Create or edit a Article",
+        "notFound": "No Articles found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Article {{ id }}?"
+      },
+      "detail": {
+        "title": "Article"
+      },
+      "code": "Code",
+      "designation": "Designation",
+      "uniteDeMessure": "Unite De Messure",
+      "quantiteContractuelle": "Quantite Contractuelle",
+      "quantiteRealisee": "Quantite Realisee"
+    }
+  },
+  "affaireServiceApp": {
+    "affaireServiceArticle": {
+      "created": "A new Article is created with identifier {{ param }}",
+      "updated": "A Article is updated with identifier {{ param }}",
+      "deleted": "A Article is deleted with identifier {{ param }}"
+    }
+  }
+}

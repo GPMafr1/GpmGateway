@@ -1,0 +1,28 @@
+{
+  "gpmGatewayApp": {
+    "missionServiceTache": {
+      "home": {
+        "title": "Taches",
+        "createLabel": "Créer un nouveau Tache",
+        "createOrEditLabel": "Créer ou éditer un Tache",
+        "notFound": "Aucun Tache trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tache {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tache"
+      },
+      "roleMission": "Role Mission",
+      "note": "Note",
+      "remboursement": "Remboursement"
+    }
+  },
+  "missionServiceApp": {
+    "missionServiceTache": {
+      "created": "Un nouveau Tache a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tache avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tache avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

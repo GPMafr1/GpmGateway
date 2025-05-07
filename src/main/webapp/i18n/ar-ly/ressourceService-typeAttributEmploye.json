@@ -1,0 +1,9 @@
+{
+  "gpmGatewayApp": {
+    "TypeAttributEmploye": {
+      "null": "",
+      "SOUS_TRAITANT": "SOUS_TRAITANT",
+      "EMPLOYE": "EMPLOYE"
+    }
+  }
+}

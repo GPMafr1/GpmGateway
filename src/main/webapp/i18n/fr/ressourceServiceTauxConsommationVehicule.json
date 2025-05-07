@@ -1,0 +1,27 @@
+{
+  "gpmGatewayApp": {
+    "ressourceServiceTauxConsommationVehicule": {
+      "home": {
+        "title": "TauxConsommationVehicules",
+        "createLabel": "Créer un nouveau Taux Consommation Vehicule",
+        "createOrEditLabel": "Créer ou éditer un Taux Consommation Vehicule",
+        "notFound": "Aucun Taux Consommation Vehicule trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Taux Consommation Vehicule {{ id }} ?"
+      },
+      "detail": {
+        "title": "Taux Consommation Vehicule"
+      },
+      "date": "Date",
+      "valeur": "Valeur"
+    }
+  },
+  "ressourceServiceApp": {
+    "ressourceServiceTauxConsommationVehicule": {
+      "created": "Un nouveau Taux Consommation Vehicule a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Taux Consommation Vehicule avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Taux Consommation Vehicule avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

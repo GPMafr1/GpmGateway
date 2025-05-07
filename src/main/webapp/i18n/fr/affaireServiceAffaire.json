@@ -1,0 +1,38 @@
+{
+  "gpmGatewayApp": {
+    "affaireServiceAffaire": {
+      "home": {
+        "title": "Affaires",
+        "createLabel": "Créer un nouveau Affaire",
+        "createOrEditLabel": "Créer ou éditer un Affaire",
+        "notFound": "Aucun Affaire trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Affaire {{ id }} ?"
+      },
+      "detail": {
+        "title": "Affaire"
+      },
+      "numeroAffaire": "Numero Affaire",
+      "designationAffaire": "Designation Affaire",
+      "bonDeCommande": "Bon De Commande",
+      "montant": "Montant",
+      "devise": "Devise",
+      "dateDebut": "Date Debut",
+      "dateCloture": "Date Cloture",
+      "datePassageExecution": "Date Passage Execution",
+      "lieuMultipleParMission": "Lieu Multiple Par Mission",
+      "montantVente": "Montant Vente",
+      "montantBudgetaireMateriel": "Montant Budgetaire Materiel",
+      "montantBudgetaireService": "Montant Budgetaire Service",
+      "statut": "Statut"
+    }
+  },
+  "affaireServiceApp": {
+    "affaireServiceAffaire": {
+      "created": "Un nouveau Affaire a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Affaire avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Affaire avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

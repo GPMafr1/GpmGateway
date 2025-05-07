@@ -1,0 +1,47 @@
+{
+  "name": "Employe",
+  "fields": [
+    {
+      "fieldName": "matricule",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prenomNom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "attribut",
+      "fieldType": "TypeAttributEmploye",
+      "fieldValues": "SOUS_TRAITANT,EMPLOYE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "chefProjet",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "numeroPermis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroCIN",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20250507112313",
+  "entityTableName": "employe",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["GpmGateway"],
+  "microserviceName": "ressourceService"
+}

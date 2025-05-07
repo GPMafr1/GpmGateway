@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="article">
+            <h2><span jhiTranslate="gpmGatewayApp.affaireServiceArticle.detail.title">Article</span> {{ article.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceArticle.code">Code</span></dt>
+                <dd>
+                    <span>{{ article.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceArticle.designation">Designation</span></dt>
+                <dd>
+                    <span>{{ article.designation }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceArticle.uniteDeMessure">Unite De Messure</span></dt>
+                <dd>
+                    <span>{{ article.uniteDeMessure }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceArticle.quantiteContractuelle">Quantite Contractuelle</span></dt>
+                <dd>
+                    <span>{{ article.quantiteContractuelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.affaireServiceArticle.quantiteRealisee">Quantite Realisee</span></dt>
+                <dd>
+                    <span>{{ article.quantiteRealisee }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/article', article.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

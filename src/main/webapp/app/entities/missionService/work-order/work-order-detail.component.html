@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="workOrder">
+            <h2><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.detail.title">Work Order</span> {{ workOrder.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.demandeur">Demandeur</span></dt>
+                <dd>
+                    <span>{{ workOrder.demandeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.motif">Motif</span></dt>
+                <dd>
+                    <span>{{ workOrder.motif }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureDebutPrevisionnel">Date Heure Debut Previsionnel</span></dt>
+                <dd>
+                    <span>{{ workOrder.dateHeureDebutPrevisionnel }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureFinPrevisionnel">Date Heure Fin Previsionnel</span></dt>
+                <dd>
+                    <span>{{ workOrder.dateHeureFinPrevisionnel }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureDebutReel">Date Heure Debut Reel</span></dt>
+                <dd>
+                    <span>{{ workOrder.dateHeureDebutReel }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureFinReel">Date Heure Fin Reel</span></dt>
+                <dd>
+                    <span>{{ workOrder.dateHeureFinReel }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.materielUtilise">Materiel Utilise</span></dt>
+                <dd>
+                    <span>{{ workOrder.materielUtilise }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.remarque">Remarque</span></dt>
+                <dd>
+                    <span>{{ workOrder.remarque }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.numeroFicheIntervention">Numero Fiche Intervention</span></dt>
+                <dd>
+                    <span>{{ workOrder.numeroFicheIntervention }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.hebergement">Hebergement</span></dt>
+                <dd>
+                    <span>{{ workOrder.hebergement }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/work-order', workOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

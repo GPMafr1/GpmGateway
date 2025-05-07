@@ -1,0 +1,27 @@
+{
+  "gpmGatewayApp": {
+    "ressourceServiceChargeFixeVehicule": {
+      "home": {
+        "title": "Charge Fixe Vehicules",
+        "createLabel": "Create a new Charge Fixe Vehicule",
+        "createOrEditLabel": "Create or edit a Charge Fixe Vehicule",
+        "notFound": "No Charge Fixe Vehicules found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Charge Fixe Vehicule {{ id }}?"
+      },
+      "detail": {
+        "title": "Charge Fixe Vehicule"
+      },
+      "date": "Date",
+      "valeur": "Valeur"
+    }
+  },
+  "ressourceServiceApp": {
+    "ressourceServiceChargeFixeVehicule": {
+      "created": "A new Charge Fixe Vehicule is created with identifier {{ param }}",
+      "updated": "A Charge Fixe Vehicule is updated with identifier {{ param }}",
+      "deleted": "A Charge Fixe Vehicule is deleted with identifier {{ param }}"
+    }
+  }
+}

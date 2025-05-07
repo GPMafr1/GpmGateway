@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-sst-heading" jhiTranslate="gpmGatewayApp.missionServiceSSt.home.createOrEditLabel">Create or edit a SST</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceSSt.label" for="field_label">Label</label>
+                    <input type="text" class="form-control" name="label" id="field_label"
+                           formControlName="label"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceSSt.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" formControlName="date"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceSSt.importance" for="field_importance">Importance</label>
+                    <select class="form-control" name="importance" formControlName="importance" id="field_importance">
+                        <option value="FAIBLE">{{ 'gpmGatewayApp.ImportanceSST.FAIBLE' | translate }}</option>
+                        <option value="MOYENNE">{{ 'gpmGatewayApp.ImportanceSST.MOYENNE' | translate }}</option>
+                        <option value="ELEVEE">{{ 'gpmGatewayApp.ImportanceSST.ELEVEE' | translate }}</option>
+                        <option value="CRITIQUE">{{ 'gpmGatewayApp.ImportanceSST.CRITIQUE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceSSt.commentaire" for="field_commentaire">Commentaire</label>
+                    <input type="text" class="form-control" name="commentaire" id="field_commentaire"
+                           formControlName="commentaire"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

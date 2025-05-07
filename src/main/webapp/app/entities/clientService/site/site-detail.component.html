@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="site">
+            <h2><span jhiTranslate="gpmGatewayApp.clientServiceSite.detail.title">Site</span> {{ site.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSite.code">Code</span></dt>
+                <dd>
+                    <span>{{ site.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSite.designation">Designation</span></dt>
+                <dd>
+                    <span>{{ site.designation }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSite.ville">Ville</span></dt>
+                <dd>
+                    <span>{{ site.ville }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSite.gpsX">Gps X</span></dt>
+                <dd>
+                    <span>{{ site.gpsX }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceSite.gpsY">Gps Y</span></dt>
+                <dd>
+                    <span>{{ site.gpsY }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/site', site.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

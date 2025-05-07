@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-client-heading" jhiTranslate="gpmGatewayApp.clientServiceClient.home.createOrEditLabel">Create or edit a Client</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.clientServiceClient.raisonSociale" for="field_raisonSociale">Raison Sociale</label>
+                    <input type="text" class="form-control" name="raisonSociale" id="field_raisonSociale"
+                           formControlName="raisonSociale"/>
+                    <div *ngIf="editForm.get('raisonSociale')!.invalid && (editForm.get('raisonSociale')!.dirty || editForm.get('raisonSociale')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('raisonSociale')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.clientServiceClient.identifiantUnique" for="field_identifiantUnique">Identifiant Unique</label>
+                    <input type="text" class="form-control" name="identifiantUnique" id="field_identifiantUnique"
+                           formControlName="identifiantUnique"/>
+                    <div *ngIf="editForm.get('identifiantUnique')!.invalid && (editForm.get('identifiantUnique')!.dirty || editForm.get('identifiantUnique')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('identifiantUnique')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.clientServiceClient.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.clientServiceClient.telephone" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.clientServiceClient.fax" for="field_fax">Fax</label>
+                    <input type="text" class="form-control" name="fax" id="field_fax"
+                           formControlName="fax"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.clientServiceClient.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email')?.errors?.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Email' }">
+                            This field should follow pattern for "Email".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.clientServiceClient.typeSites" for="field_typeSites">Type Sites</label>
+                    <input type="text" class="form-control" name="typeSites" id="field_typeSites"
+                           formControlName="typeSites"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

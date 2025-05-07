@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tauxConsommationVehicule">
+            <h2><span jhiTranslate="gpmGatewayApp.ressourceServiceTauxConsommationVehicule.detail.title">Taux Consommation Vehicule</span> {{ tauxConsommationVehicule.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.ressourceServiceTauxConsommationVehicule.date">Date</span></dt>
+                <dd>
+                    <span>{{ tauxConsommationVehicule.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.ressourceServiceTauxConsommationVehicule.valeur">Valeur</span></dt>
+                <dd>
+                    <span>{{ tauxConsommationVehicule.valeur }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/taux-consommation-vehicule', tauxConsommationVehicule.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

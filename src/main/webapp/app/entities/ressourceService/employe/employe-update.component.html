@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-employe-heading" jhiTranslate="gpmGatewayApp.ressourceServiceEmploye.home.createOrEditLabel">Create or edit a Employe</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceEmploye.matricule" for="field_matricule">Matricule</label>
+                    <input type="text" class="form-control" name="matricule" id="field_matricule"
+                           formControlName="matricule"/>
+                    <div *ngIf="editForm.get('matricule')!.invalid && (editForm.get('matricule')!.dirty || editForm.get('matricule')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('matricule')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceEmploye.prenomNom" for="field_prenomNom">Prenom Nom</label>
+                    <input type="text" class="form-control" name="prenomNom" id="field_prenomNom"
+                           formControlName="prenomNom"/>
+                    <div *ngIf="editForm.get('prenomNom')!.invalid && (editForm.get('prenomNom')!.dirty || editForm.get('prenomNom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prenomNom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceEmploye.attribut" for="field_attribut">Attribut</label>
+                    <select class="form-control" name="attribut" formControlName="attribut" id="field_attribut">
+                        <option value="SOUS_TRAITANT">{{ 'gpmGatewayApp.TypeAttributEmploye.SOUS_TRAITANT' | translate }}</option>
+                        <option value="EMPLOYE">{{ 'gpmGatewayApp.TypeAttributEmploye.EMPLOYE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('attribut')!.invalid && (editForm.get('attribut')!.dirty || editForm.get('attribut')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('attribut')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceEmploye.chefProjet" for="field_chefProjet">Chef Projet</label>
+                    <input type="checkbox" class="form-control" name="chefProjet" id="field_chefProjet"
+                           formControlName="chefProjet"/>
+                    <div *ngIf="editForm.get('chefProjet')!.invalid && (editForm.get('chefProjet')!.dirty || editForm.get('chefProjet')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('chefProjet')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceEmploye.numeroPermis" for="field_numeroPermis">Numero Permis</label>
+                    <input type="text" class="form-control" name="numeroPermis" id="field_numeroPermis"
+                           formControlName="numeroPermis"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.ressourceServiceEmploye.numeroCIN" for="field_numeroCIN">Numero CIN</label>
+                    <input type="text" class="form-control" name="numeroCIN" id="field_numeroCIN"
+                           formControlName="numeroCIN"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

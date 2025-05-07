@@ -1,0 +1,35 @@
+{
+  "name": "SST",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "importance",
+      "fieldType": "ImportanceSST",
+      "fieldValues": "FAIBLE,MOYENNE,ELEVEE,CRITIQUE"
+    },
+    {
+      "fieldName": "commentaire",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20250507113513",
+  "entityTableName": "sst",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["GpmGateway"],
+  "microserviceName": "missionService"
+}

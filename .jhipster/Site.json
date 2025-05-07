@@ -1,0 +1,40 @@
+{
+  "name": "Site",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "designation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ville",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gpsX",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "gpsY",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20250507114113",
+  "entityTableName": "site",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["GpmGateway"],
+  "microserviceName": "clientService"
+}

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contact">
+            <h2><span jhiTranslate="gpmGatewayApp.clientServiceContact.detail.title">Contact</span> {{ contact.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceContact.raisonSociale">Raison Sociale</span></dt>
+                <dd>
+                    <span>{{ contact.raisonSociale }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceContact.identifiantUnique">Identifiant Unique</span></dt>
+                <dd>
+                    <span>{{ contact.identifiantUnique }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceContact.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ contact.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceContact.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ contact.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceContact.fax">Fax</span></dt>
+                <dd>
+                    <span>{{ contact.fax }}</span>
+                </dd>
+                <dt><span jhiTranslate="gpmGatewayApp.clientServiceContact.email">Email</span></dt>
+                <dd>
+                    <span>{{ contact.email }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contact', contact.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

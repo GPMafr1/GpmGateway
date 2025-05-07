@@ -1,0 +1,31 @@
+{
+  "name": "OrdreTravailClient",
+  "fields": [
+    {
+      "fieldName": "demandeur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "origine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "motif",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20250507113013",
+  "entityTableName": "ordre_travail_client",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["GpmGateway"],
+  "microserviceName": "missionService"
+}

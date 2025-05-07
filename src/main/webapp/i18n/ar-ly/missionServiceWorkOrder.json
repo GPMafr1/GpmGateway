@@ -1,0 +1,35 @@
+{
+  "gpmGatewayApp": {
+    "missionServiceWorkOrder": {
+      "home": {
+        "title": "Work Orders",
+        "createLabel": "Create a new Work Order",
+        "createOrEditLabel": "Create or edit a Work Order",
+        "notFound": "No Work Orders found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Work Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Order"
+      },
+      "demandeur": "Demandeur",
+      "motif": "Motif",
+      "dateHeureDebutPrevisionnel": "Date Heure Debut Previsionnel",
+      "dateHeureFinPrevisionnel": "Date Heure Fin Previsionnel",
+      "dateHeureDebutReel": "Date Heure Debut Reel",
+      "dateHeureFinReel": "Date Heure Fin Reel",
+      "materielUtilise": "Materiel Utilise",
+      "remarque": "Remarque",
+      "numeroFicheIntervention": "Numero Fiche Intervention",
+      "hebergement": "Hebergement"
+    }
+  },
+  "missionServiceApp": {
+    "missionServiceWorkOrder": {
+      "created": "A new Work Order is created with identifier {{ param }}",
+      "updated": "A Work Order is updated with identifier {{ param }}",
+      "deleted": "A Work Order is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-work-order-heading" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.home.createOrEditLabel">Create or edit a Work Order</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.demandeur" for="field_demandeur">Demandeur</label>
+                    <input type="text" class="form-control" name="demandeur" id="field_demandeur"
+                           formControlName="demandeur"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.motif" for="field_motif">Motif</label>
+                    <input type="text" class="form-control" name="motif" id="field_motif"
+                           formControlName="motif"/>
+                    <div *ngIf="editForm.get('motif')!.invalid && (editForm.get('motif')!.dirty || editForm.get('motif')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('motif')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureDebutPrevisionnel" for="field_dateHeureDebutPrevisionnel">Date Heure Debut Previsionnel</label>
+                    <div class="d-flex">
+                        <input id="field_dateHeureDebutPrevisionnel" type="datetime-local" class="form-control" name="dateHeureDebutPrevisionnel" formControlName="dateHeureDebutPrevisionnel" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateHeureDebutPrevisionnel')!.invalid && (editForm.get('dateHeureDebutPrevisionnel')!.dirty || editForm.get('dateHeureDebutPrevisionnel')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateHeureDebutPrevisionnel')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateHeureDebutPrevisionnel')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureFinPrevisionnel" for="field_dateHeureFinPrevisionnel">Date Heure Fin Previsionnel</label>
+                    <div class="d-flex">
+                        <input id="field_dateHeureFinPrevisionnel" type="datetime-local" class="form-control" name="dateHeureFinPrevisionnel" formControlName="dateHeureFinPrevisionnel" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateHeureFinPrevisionnel')!.invalid && (editForm.get('dateHeureFinPrevisionnel')!.dirty || editForm.get('dateHeureFinPrevisionnel')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateHeureFinPrevisionnel')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateHeureFinPrevisionnel')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureDebutReel" for="field_dateHeureDebutReel">Date Heure Debut Reel</label>
+                    <div class="d-flex">
+                        <input id="field_dateHeureDebutReel" type="datetime-local" class="form-control" name="dateHeureDebutReel" formControlName="dateHeureDebutReel" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.dateHeureFinReel" for="field_dateHeureFinReel">Date Heure Fin Reel</label>
+                    <div class="d-flex">
+                        <input id="field_dateHeureFinReel" type="datetime-local" class="form-control" name="dateHeureFinReel" formControlName="dateHeureFinReel" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.materielUtilise" for="field_materielUtilise">Materiel Utilise</label>
+                    <input type="text" class="form-control" name="materielUtilise" id="field_materielUtilise"
+                           formControlName="materielUtilise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.remarque" for="field_remarque">Remarque</label>
+                    <input type="text" class="form-control" name="remarque" id="field_remarque"
+                           formControlName="remarque"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.numeroFicheIntervention" for="field_numeroFicheIntervention">Numero Fiche Intervention</label>
+                    <input type="text" class="form-control" name="numeroFicheIntervention" id="field_numeroFicheIntervention"
+                           formControlName="numeroFicheIntervention"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.missionServiceWorkOrder.hebergement" for="field_hebergement">Hebergement</label>
+                    <input type="number" class="form-control" name="hebergement" id="field_hebergement"
+                           formControlName="hebergement"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

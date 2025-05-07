@@ -1,0 +1,151 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-affaire-heading" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.home.createOrEditLabel">Create or edit a Affaire</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.numeroAffaire" for="field_numeroAffaire">Numero Affaire</label>
+                    <input type="text" class="form-control" name="numeroAffaire" id="field_numeroAffaire"
+                           formControlName="numeroAffaire"/>
+                    <div *ngIf="editForm.get('numeroAffaire')!.invalid && (editForm.get('numeroAffaire')!.dirty || editForm.get('numeroAffaire')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroAffaire')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroAffaire')?.errors?.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Numero Affaire' }">
+                            This field should follow pattern for "Numero Affaire".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.designationAffaire" for="field_designationAffaire">Designation Affaire</label>
+                    <input type="text" class="form-control" name="designationAffaire" id="field_designationAffaire"
+                           formControlName="designationAffaire"/>
+                    <div *ngIf="editForm.get('designationAffaire')!.invalid && (editForm.get('designationAffaire')!.dirty || editForm.get('designationAffaire')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('designationAffaire')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.bonDeCommande" for="field_bonDeCommande">Bon De Commande</label>
+                    <input type="text" class="form-control" name="bonDeCommande" id="field_bonDeCommande"
+                           formControlName="bonDeCommande"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                           formControlName="montant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.devise" for="field_devise">Devise</label>
+                    <input type="text" class="form-control" name="devise" id="field_devise"
+                           formControlName="devise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="input-group">
+                        <input id="field_dateDebut" type="text" class="form-control" name="dateDebut" ngbDatepicker #dateDebutDp="ngbDatepicker" formControlName="dateDebut"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDebutDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateDebut')!.invalid && (editForm.get('dateDebut')!.dirty || editForm.get('dateDebut')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateDebut')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.dateCloture" for="field_dateCloture">Date Cloture</label>
+                    <div class="input-group">
+                        <input id="field_dateCloture" type="text" class="form-control" name="dateCloture" ngbDatepicker #dateClotureDp="ngbDatepicker" formControlName="dateCloture"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateClotureDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.datePassageExecution" for="field_datePassageExecution">Date Passage Execution</label>
+                    <div class="input-group">
+                        <input id="field_datePassageExecution" type="text" class="form-control" name="datePassageExecution" ngbDatepicker #datePassageExecutionDp="ngbDatepicker" formControlName="datePassageExecution"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datePassageExecutionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.lieuMultipleParMission" for="field_lieuMultipleParMission">Lieu Multiple Par Mission</label>
+                    <input type="checkbox" class="form-control" name="lieuMultipleParMission" id="field_lieuMultipleParMission"
+                           formControlName="lieuMultipleParMission"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.montantVente" for="field_montantVente">Montant Vente</label>
+                    <input type="number" class="form-control" name="montantVente" id="field_montantVente"
+                           formControlName="montantVente"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.montantBudgetaireMateriel" for="field_montantBudgetaireMateriel">Montant Budgetaire Materiel</label>
+                    <input type="number" class="form-control" name="montantBudgetaireMateriel" id="field_montantBudgetaireMateriel"
+                           formControlName="montantBudgetaireMateriel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.montantBudgetaireService" for="field_montantBudgetaireService">Montant Budgetaire Service</label>
+                    <input type="number" class="form-control" name="montantBudgetaireService" id="field_montantBudgetaireService"
+                           formControlName="montantBudgetaireService"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gpmGatewayApp.affaireServiceAffaire.statut" for="field_statut">Statut</label>
+                    <select class="form-control" name="statut" formControlName="statut" id="field_statut">
+                        <option value="DRAFT">{{ 'gpmGatewayApp.StatutAffaire.DRAFT' | translate }}</option>
+                        <option value="PREPARATION_OFFRE_TECHNIQUE">{{ 'gpmGatewayApp.StatutAffaire.PREPARATION_OFFRE_TECHNIQUE' | translate }}</option>
+                        <option value="PREPARATION_OFFRE_ADMINISTRATIVE">{{ 'gpmGatewayApp.StatutAffaire.PREPARATION_OFFRE_ADMINISTRATIVE' | translate }}</option>
+                        <option value="OFFRE_FOURNISSEUR">{{ 'gpmGatewayApp.StatutAffaire.OFFRE_FOURNISSEUR' | translate }}</option>
+                        <option value="SOUMISSION">{{ 'gpmGatewayApp.StatutAffaire.SOUMISSION' | translate }}</option>
+                        <option value="EXECUTION">{{ 'gpmGatewayApp.StatutAffaire.EXECUTION' | translate }}</option>
+                        <option value="CLOTUREE">{{ 'gpmGatewayApp.StatutAffaire.CLOTUREE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('statut')!.invalid && (editForm.get('statut')!.dirty || editForm.get('statut')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('statut')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
