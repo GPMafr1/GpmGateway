@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0d1117;
+}
+
+#time {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  color: #fff;
+}
+
+.circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform: rotate(270deg);
+}
+
+.circle svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke-width: 4px;
+  transform: translate(5px, 5px);
+  stroke-linecap: round;
+  stroke: #4b4b4b;
+}
+
+.circle svg .base-circle {
+  stroke: #282828;
+}
+
+.circle svg .progress-circle {
+  stroke-dasharray: 440;
+}
+
+.circle svg .hours-circle {
+  stroke: #ff2972;
+}
+
+.circle svg .minutes-circle {
+  stroke: #fee800;
+}
+
+.circle svg .seconds-circle {
+  stroke: #04fc43;
+}
+
+.circle .dots {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  z-index: 10;
+  background: var(--color);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--color), 0 0 60px var(--color);
+}
+
+.h_dot {
+  background-color: #ff2972 !important;
+}
+
+.m_dot {
+  background-color: #fee800 !important;
+}
+
+.s_dot {
+  background-color: #04fc43 !important;
+}
+
+#hours,
+#minutes,
+#seconds {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#hours p,
+#minutes p,
+#seconds p {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.time-text {
+  font-size: 1.2rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 200 !important;
+}
+
+.ap {
+  position: relative;
+  font-size: 1rem;
+  transform: translateX(-20px);
+  display: flex;
+  align-items: center;
+}
+
+#ampm {
+  font-weight: 600;
+  position: relative;
+  top: -10px;
+  color: white;
+}
